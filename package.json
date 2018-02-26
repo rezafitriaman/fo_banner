@@ -1,0 +1,23 @@
+{
+  "name": "fo_banner",
+  "version": "1.0.0",
+  "description": "fonq_banner",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rezafitriaman/fo_banner.git"
+  },
+  "keywords": [
+    "banner",
+    "fonq"
+  ],
+  "author": "bGenius",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rezafitriaman/fo_banner/issues"
+  },
+  "homepage": "https://github.com/rezafitriaman/fo_banner#readme"
+}
