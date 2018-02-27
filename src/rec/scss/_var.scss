@@ -1,0 +1,57 @@
+/*font*/
+@font-face {
+	font-family: SourceSansPro-Bold;
+	src: url('SourceSansPro-Bold.ttf');
+ }
+@font-face {
+	font-family: SourceSansPro-Regular;
+	src: url('SourceSansPro-Regular.ttf');
+ }
+@font-face {
+	font-family: SourceSansPro-Light;
+	src: url('SourceSansPro-Light.ttf');
+}
+ @font-face {
+	font-family: PatuaOne-Regular;
+	src: url('PatuaOne-Regular.otf');
+}
+
+$sourceRegular: SourceSansPro-Regular;
+$sourceBold: SourceSansPro-Bold;
+$patuaReg: PatuaOne-Regular;
+$primaire_color: #30b4e7;
+/* $blue: #1bb3f4;  */
+
+
+/* formaat */
+
+/* $formW: 300px;
+$formH: 250px; */
+
+/* $formW: 2500px;
+$formH: 250px; */
+
+$formW: 336px;
+$formH: 280px;
+
+/* $formW: 250px;
+$formH: 250px; */
+
+/* #copy1Wrapper */
+/* copy2Wrapper */
+/* copy3Wrapper */
+
+/* 300x250 */
+$copyOneW: 255px;
+$copyTwoW: 255px;
+$copyThreeW: 290px;
+
+/* 250x250 */
+/* $copyOneW: 255px;
+$copyTwoW: 205px;
+$copyThreeW: 235px; */
+
+/* 336x280 */
+$copyOneW: 292px;
+$copyTwoW: 292px;
+$copyThreeW: 325px;

@@ -12,17 +12,29 @@ var gulp = require('gulp'),
 	rename = require('gulp-rename'),
 	sourcemaps = require('gulp-sourcemaps');
 
+var forW = 300,
+	forH = 600,
+	source = 'sky';
+
 	/*gulp gulp-uglify browser-sync gulp-sass gulp-plumber gulp-autoprefixer gulp-concat gulp-concat-css gulp-rename gulp-sourcemaps*/
 /*task*/
 gulp.task('concat', function() {
 	console.log('concat work!');
-  	return gulp.src('src/js/*.js')
+  	return gulp.src('src/'+ source +'/js/*.js')
   	.pipe(order([
 	    "TweenMax.min.js",
 	    "main.js"
 	  ]))
     .pipe(concat('all.js'))
-    .pipe(gulp.dest('public/300x250'))
+    .pipe(gulp.dest('public/' + forW + 'x' + forH))
+    .pipe(reload({stream:true}));
+});
+
+/*make html go to public*/
+gulp.task('source_html', function() {
+	console.log('source_html work!');
+    gulp.src('src/' + source + '/*.html')
+    .pipe(gulp.dest('public/' + forW + 'x' + forH))
     .pipe(reload({stream:true}));
 });
 
@@ -37,7 +49,7 @@ gulp.task('concat', function() {
 
 gulp.task('sass', function () {
 	console.log('sass work!');
-  return gulp.src('src/scss/*.scss')
+  return gulp.src('src/' + source + '/scss/*.scss')
   	.pipe(plumber())
   	.pipe(sourcemaps.init())
 	.pipe(sass().on('error', sass.logError))
@@ -45,23 +57,23 @@ gulp.task('sass', function () {
     .pipe(autoprefixer({
     browsers: ['last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'android 4']
 	}))
-    .pipe(gulp.dest('public/300x250'))
+    .pipe(gulp.dest('public/' + forW + 'x' + forH))
     .pipe(reload({stream:true}));
 });
 
 gulp.task('concatCss', function () {
 	console.log('concatCss work!');
-  return gulp.src(['!public/300x250/all.css','public/300x250/*.css'])
+  return gulp.src(['!public/' + forW + 'x' + forH +'/all.css','public/' + forW + 'x' + forH + '/*.css'])
   	.pipe(sourcemaps.init())
 	    .pipe(concatCss("all.css"))
-	    .pipe(gulp.dest('public/300x250'))
+	    .pipe(gulp.dest('public/' + forW + 'x' + forH))
     .pipe(sourcemaps.write())
     .pipe(reload({stream:true}));
 });
 
 gulp.task('html', function () {
 	console.log('html work!');
-	gulp.src('public/300x250/*.html')
+	gulp.src('public/' + forW + 'x' + forH + '/*.html')
 	.pipe(reload({stream:true}));
 });
 
@@ -70,7 +82,8 @@ gulp.task('browser-sync', function () {
 	console.log('browser-sync work!');
 	browserSync({
 		server: {
-			baseDir: 'public',
+			baseDir: ['public'],
+			directory: true,
 			proxy: "grqbge-nwx7013:3000"
 		}
 	});
@@ -79,12 +92,13 @@ gulp.task('browser-sync', function () {
 /*watch*/
 gulp.task('watch', function() {
 	console.log('watch');
-	gulp.watch('src/js/*.js', ['concat']);
+	gulp.watch('src/' + source + '/*.html',['source_html']);
+	gulp.watch('src/' + source + '/js/*.js', ['concat']);
 	/*gulp.watch('cv/js/dev/*.js', ['scripts']);*/
-	gulp.watch('src/scss/style.scss', ['sass']);
-	gulp.watch('public/300x250/style.css', ['concatCss']);
-	gulp.watch('public/300x250/*.html', ['html']);
+	gulp.watch('src/' + source + '/scss/style.scss', ['sass']);
+	gulp.watch('public/' + forW + 'x' + forH + '/style.css', ['concatCss']);
+	gulp.watch('public/' + forW + 'x' + forH + '/*.html', ['html']);
 });
 
 /*default*/
-gulp.task('default',['concat', 'sass', 'concatCss', 'html', 'browser-sync', 'watch']);
+gulp.task('default',['concat', 'sass', 'concatCss', 'source_html', 'html', 'browser-sync', 'watch']);
