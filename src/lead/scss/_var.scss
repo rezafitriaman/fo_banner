@@ -1,0 +1,23 @@
+/*font*/
+@font-face {
+	font-family: SourceSansPro-Bold;
+	src: url('SourceSansPro-Bold.ttf');
+ }
+@font-face {
+	font-family: SourceSansPro-Regular;
+	src: url('SourceSansPro-Regular.ttf');
+ }
+@font-face {
+	font-family: SourceSansPro-Light;
+	src: url('SourceSansPro-Light.ttf');
+}
+ @font-face {
+	font-family: PatuaOne-Regular;
+	src: url('PatuaOne-Regular.otf');
+}
+
+$sourceRegular: SourceSansPro-Regular;
+$sourceBold: SourceSansPro-Bold;
+$patuaReg: PatuaOne-Regular;
+$primaire_color: #30b4e7;
+/* $blue: #1bb3f4;  */

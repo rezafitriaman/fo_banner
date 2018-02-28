@@ -1,0 +1,279 @@
+@import 'var';
+@import '970x250';
+
+.spinner {
+	display: none;
+	margin: 100px auto;
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	text-align: center;
+
+	-webkit-animation: sk-rotate 2.0s infinite linear;
+	animation: sk-rotate 2.0s infinite linear;
+	top: 15%;
+    left: 34%;
+    margin-right: -50%;
+}
+
+.dot1, .dot2 {
+	width: 60%;
+	height: 60%;
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	background-color: $primaire_color;
+	border-radius: 100%;
+
+	-webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+	animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.dot2 {
+	top: auto;
+	bottom: 0;
+	-webkit-animation-delay: -1.0s;
+	animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-rotate { 100% { -webkit-transform: rotate(360deg) }}
+@keyframes sk-rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg) }}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+  0%, 100% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% { 
+    transform: scale(1.0); 
+    -webkit-transform: scale(1.0);
+  }
+}
+
+#banner {
+	overflow: hidden;
+	position: relative;
+	width: $formW;
+	height: $formH;
+
+	#content {
+		position: relative;
+		display: none;
+		height: 100%;
+	    width: 100%;
+		/* CUSTOM CSS */
+		#rollOverImg
+		{
+			background-image: url('background.png');
+			width:100%;
+			height:100%;
+			position: absolute;
+			top: 0;
+			z-index: 8;
+			left: 13%;
+			background-size: cover;
+		}
+
+		#background
+		{
+		    width: $bg_width;
+		    height: $bg_height;
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		    bottom: 0;
+		    background-color: #31B4E7;
+		    z-index: 12;
+			overflow: hidden;
+		}
+
+		#skyline{
+			width: $skyline_width;
+		    height: $skyline_height;
+		    background-image: url(skyline.png);
+		    position: absolute;
+		    bottom: $skyline_bottom;
+		    left: 0;
+		    background-size: $skyline_bgsize;
+		    background-position: center;
+		    background-repeat: no-repeat;
+		    z-index: 11;
+		    background-position-x: 45.274px;
+		}
+
+		#skylineBg
+		{
+			position: absolute;
+		    width: 100%;
+		    background-color: #206A89;
+		    height: $skylinebg_height;
+		    z-index: 11;
+		    bottom: 0;
+		}
+
+		#copy1Wrapper
+		{
+			z-index: 10;
+		    position: absolute;
+			width:$copy1_Width;
+			top: $copy1_Top;
+			color:white;
+			font-size: $copy1_Fontsize;
+			font-family:$patuaReg;
+			padding-left: 5px;
+		    padding-right: 5px;
+		    display: table;
+		    height: 106%;
+		    overflow: hidden;
+		    left: $copy1_Left;
+		}
+		#copy1Wrapper span {
+		  display: block;
+		  -webkit-margin-before: 1em;
+		  -webkit-margin-after: 1em;
+		  -webkit-margin-start: 0px;
+		  -webkit-margin-end: 0px;
+		  display: table-cell;
+		  vertical-align: middle;
+		}
+		#copy2Wrapper
+		{
+			z-index: 9;
+		    position: absolute;
+			text-align:left;
+			width:$copy2_Width;
+			top:$copy2_Top;
+			color:white;
+			font-size: $copy2_Fontsize;
+			font-family:$patuaReg;
+			padding-left: 5px;
+		    padding-right: 5px;
+		    display: table;
+		    height: 101.9%;
+		    overflow: hidden;
+		    left: $copy2_Left;
+		}
+		#copy2Wrapper span {
+		  display: block;
+		  -webkit-margin-before: 1em;
+		  -webkit-margin-after: 1em;
+		  -webkit-margin-start: 0px;
+		  -webkit-margin-end: 0px;
+		  display: table-cell;
+		  vertical-align: middle;
+		}
+		#copy3Wrapper
+		{
+			z-index: 12;
+		    position: absolute;
+			text-align:center;
+			width:$copy3_Width;
+			top:$copy3_Top;
+			color:white;
+			font-size:$copy3_Fontsize;
+			text-transform: uppercase;
+			font-family: $sourceRegular;
+			padding-left: 5px;
+		    padding-right: 5px;
+		    left: $copy3_Left;
+		}
+
+		#copy3Wrapper span
+		{
+			margin-right: 3px;
+		}
+
+		#footer
+		{
+			width: $footer_width;
+		    background-color: #31B4E7;
+		    height: $footer_height;
+		    position: absolute;
+		    z-index: 11;
+		    bottom: 0;
+		}
+
+		#logo
+		{
+		    background-image: url(logo.png);
+		    position: absolute;
+		    width: 70px;
+		    height: 40px;
+		    background-size: contain;
+		    background-repeat: no-repeat;
+		    top: 15px;
+		    left: 15px;
+		}
+
+		#logoBig
+		{
+		    background-image: url(logo.png);
+		    width: $logo_width;
+		    height: $logo_height;
+		    background-size: contain;
+		    background-repeat: no-repeat;
+		    position: absolute;
+		    z-index: 13;
+		    left: $logo_left;
+		    right: 0;
+		    margin-top: $logo_margintop;
+		}
+
+		#footerCTA{
+		    width: 130px;
+		    max-height: 33px;
+		    border: 2px solid white;
+		    position: absolute;
+		    right: 15px;
+		    border-radius: 5px;
+		    color: white;
+		    text-align: center;
+		    padding: 5px 5px 5px 5px;
+		    top: 15px;
+		}
+
+		#CTA{
+		    width: $cta_width;
+		    height: $cta_height;
+		   	border: 2px solid white;
+		    position: absolute;
+		    border-radius: 5px;
+		    color: white;
+		    text-align: center;
+		    top: $cta_top;
+		    right: $cta_right;
+		    text-transform: uppercase;
+		    font-family: $sourceRegular;
+			z-index: 11;
+			background-color:#D63333;
+			font-size: $cta_font_size;
+			cursor: pointer;
+		}
+
+		#CTA .text{
+		    position: relative;
+		    top: $cta_Text_top;
+		    font-size: $cta_font_size;
+		}
+
+		#gradient{
+			height: $gradient_height;
+			position:absolute;
+			width:$gradient_width;
+			left: $gradient_left;
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+30,000000+100&0.4+1,0+87 */
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+30,000000+100&0.4+1,0+87 */
+		background: -moz-linear-gradient(left,  rgba(0,0,0,0.4) 1%, rgba(0,0,0,0.27) 30%, rgba(0,0,0,0) 87%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(left,  rgba(0,0,0,0.4) 1%,rgba(0,0,0,0.27) 30%,rgba(0,0,0,0) 87%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to right,  rgba(0,0,0,0.4) 1%,rgba(0,0,0,0.27) 30%,rgba(0,0,0,0) 87%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+
+			z-index:9;
+		}
+
+	}
+}

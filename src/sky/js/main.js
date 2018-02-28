@@ -87,8 +87,8 @@ function adds(development) {
 	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].cta_bg_color = "#d63333";
 	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].cta_bg_hover_color = "#9B080E";
 
-	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].cta_bordercolor = "transparent";
-	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].cta_bordercolor_hover = "transparent";
+	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].cta_bordercolor = "black";
+	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].cta_bordercolor_hover = "green";
 
 	    /*there is no rotation on the banner?*/
 	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].banner_rotation_sec = 30;
@@ -258,13 +258,13 @@ function animation() {
 
 	.to(creative.dom.background, 0, {opacity: 1,ease:Sine.easeOut}, 6)
 	.to(creative.dom.background, 0, {opacity: 1,ease:Sine.easeOut}, 6)
-	.to(creative.dom.background, 1.5, {height: '100%', ease:Sine.easeOut},7)
-	/*for 320x480 format*/
-	/*.to(creative.dom.logoBig, 1, {marginTop: 110, ease:Sine.easeOut},7)
-	.to(creative.dom.copy3, 1, {top: 170, ease:Sine.easeOut},7)*/
+	.to(creative.dom.background, 1, {height: '100%', ease:Sine.easeOut},7)
+	/*for 320x480 and 120x600 format*/
+	.to(creative.dom.logoBig, 1, {marginTop: 110, ease:Sine.easeOut},7)
+	.to(creative.dom.copy3, 1, {top: 170, ease:Sine.easeOut},7)
 	/*for other format*/
-	.to(creative.dom.logoBig, 1, {marginTop: 215, ease:Sine.easeOut},7)
-	.to(creative.dom.copy3, 1, {top: 274, ease:Sine.easeOut},7)
+	/*.to(creative.dom.logoBig, 1, {marginTop: 215, ease:Sine.easeOut},7)
+	.to(creative.dom.copy3, 1, {top: 274, ease:Sine.easeOut},7)*/
 	
 	.to(creative.dom.skyline, 1.5, {height: 200, ease:Sine.easeOut},7)
 	.to(creative.dom.skylineBg, 1.5, {height: 72, ease:Sine.easeOut},7)
