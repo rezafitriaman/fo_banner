@@ -12,9 +12,9 @@ var gulp = require('gulp'),
 	rename = require('gulp-rename'),
 	sourcemaps = require('gulp-sourcemaps');
 
-var forW = 970,
-	forH = 250,
-	source = 'lead';
+var forW = 320,
+	forH = 480,
+	source = 'sky';
 
 	/*gulp gulp-uglify browser-sync gulp-sass gulp-plumber gulp-autoprefixer gulp-concat gulp-concat-css gulp-rename gulp-sourcemaps*/
 /*task*/

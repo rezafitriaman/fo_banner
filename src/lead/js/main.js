@@ -205,15 +205,21 @@ function startAds(prefix) {
 
     /*cta*/
     creative.dom.cta.addEventListener('click', function() {
-		window.open(prefix.fonQ_dynamic_banners_9102017_Blad1[0].Landing.Url);
-		Enabler.exit('Cta Exit');
+		Enabler.exitOverride('Cta Exit', prefix.fonQ_dynamic_banners_9102017_Blad1[0].Landing.Url);
 	});
 
 	/*background exit*/
-	creative.dom.background.addEventListener('click', function() {
-		window.open(prefix.fonQ_dynamic_banners_9102017_Blad1[0].Landing.Url);
-		Enabler.exit('Background Exit');
-	});
+	(function(){
+		var arrBackground = [creative.dom.logoBig, creative.dom.background, creative.dom.copy3, creative.dom.rollOverImg, 
+			creative.dom.copy2, creative.dom.gradient, creative.dom.copy1];
+
+		for (var i = 0; i < arrBackground.length; i++) {
+			arrBackground[i].addEventListener('click', function() {
+				Enabler.exitOverride('Background Exit', prefix.fonQ_dynamic_banners_9102017_Blad1[0].Landing.Url);
+			});
+		}
+
+	})();
 
 	/*background-foto*/
 	creative.dom.rollOverImg.style.backgroundImage = "url(" + prefix.fonQ_dynamic_banners_9102017_Blad1[0].background_image.Url + ")";

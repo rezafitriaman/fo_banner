@@ -59,6 +59,7 @@
 	position: relative;
 	width: $formW;
 	height: $formH;
+	cursor: pointer;
 
 	#content {
 		position: relative;
@@ -248,7 +249,7 @@
 		    right: $cta_right;
 		    text-transform: uppercase;
 		    font-family: $sourceRegular;
-			z-index: 11;
+			z-index: 12;
 			background-color:#D63333;
 			font-size: $cta_font_size;
 			cursor: pointer;

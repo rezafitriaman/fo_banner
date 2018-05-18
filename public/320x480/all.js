@@ -92,7 +92,7 @@ function adds(development) {
 	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].copy2 = "Jouw mooi in wonen, koken en lifestyle vind je bij fonQ";
 	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].copy2_fontcolor = "#ffffff";
 
-	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].copy3_1 = "Vind";
+	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].copy3_1 = "Gerben";
 	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].copy3_2 = "Jou";
 	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].copy3_3 = "Mooi";
 
@@ -104,8 +104,8 @@ function adds(development) {
 	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].cta_bg_color = "#d63333";
 	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].cta_bg_hover_color = "#9B080E";
 
-	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].cta_bordercolor = "yellow";
-	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].cta_bordercolor_hover = "red";
+	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].cta_bordercolor = "black";
+	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].cta_bordercolor_hover = "green";
 
 	    /*there is no rotation on the banner?*/
 	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].banner_rotation_sec = 30;
@@ -132,7 +132,7 @@ function adds(development) {
 	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].Tagging = "?utm_source=display&utm_medium=cpm&utm_campaign=cat_remarketing";
 
 	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].Landing = {};
-	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].Landing.Url = "https://www.fonq.nl/?utm_source=display&utm_medium=cpm&utm_campaign=cat_remarketing";
+	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].Landing.Url = "https://www.fonq.nl/campagne/verhuizen/?utm_source%E2%80%A6pecting|verhuizers&utm_content=banner|algemeen|V1";
 	    Enabler.setDevDynamicContent(devDynamicContent);
 
 	    startAds(devDynamicContent);
@@ -220,15 +220,22 @@ function startAds(prefix) {
 
     /*cta*/
     creative.dom.cta.addEventListener('click', function() {
-		window.open(prefix.fonQ_dynamic_banners_9102017_Blad1[0].Landing.Url);
-		Enabler.exit('Cta Exit');
+		Enabler.exitOverride('Cta Exit', prefix.fonQ_dynamic_banners_9102017_Blad1[0].Landing.Url)
 	});
 
 	/*background exit*/
-	creative.dom.background.addEventListener('click', function() {
-		window.open(prefix.fonQ_dynamic_banners_9102017_Blad1[0].Landing.Url);
-		Enabler.exit('Background Exit');
-	});
+	function backgroundClick() {
+		var arrBackground = [creative.dom.logoBig, creative.dom.background, creative.dom.skylineBg, creative.dom.skyline, creative.dom.copy3, creative.dom.rollOverImg, 
+			creative.dom.copy2, creative.dom.gradient, creative.dom.copy1];
+
+		for (var i = 0; i < arrBackground.length; i++) {
+			arrBackground[i].addEventListener('click', function() {
+				Enabler.exitOverride('Background Exit', prefix.fonQ_dynamic_banners_9102017_Blad1[0].Landing.Url);
+			});
+		}
+	}
+
+	backgroundClick();
 
 	/*background-foto*/
 	creative.dom.rollOverImg.style.backgroundImage = "url(" + prefix.fonQ_dynamic_banners_9102017_Blad1[0].background_image.Url + ")";
@@ -275,8 +282,8 @@ function animation() {
 
 	.to(creative.dom.background, 0, {opacity: 1,ease:Sine.easeOut}, 6)
 	.to(creative.dom.background, 0, {opacity: 1,ease:Sine.easeOut}, 6)
-	.to(creative.dom.background, 1.5, {height: '100%', ease:Sine.easeOut},7)
-	/*for 320x480 format*/
+	.to(creative.dom.background, 1, {height: '100%', ease:Sine.easeOut},7)
+	/*for 320x480 and 120x600 format*/
 	.to(creative.dom.logoBig, 1, {marginTop: 110, ease:Sine.easeOut},7)
 	.to(creative.dom.copy3, 1, {top: 170, ease:Sine.easeOut},7)
 	/*for other format*/

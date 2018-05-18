@@ -75,7 +75,7 @@ function adds(development) {
 	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].copy2 = "Jouw mooi in wonen, koken en lifestyle vind je bij fonQ";
 	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].copy2_fontcolor = "#ffffff";
 
-	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].copy3_1 = "Vind";
+	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].copy3_1 = "Gerben";
 	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].copy3_2 = "Jou";
 	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].copy3_3 = "Mooi";
 
@@ -115,7 +115,7 @@ function adds(development) {
 	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].Tagging = "?utm_source=display&utm_medium=cpm&utm_campaign=cat_remarketing";
 
 	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].Landing = {};
-	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].Landing.Url = "https://www.fonq.nl/?utm_source=display&utm_medium=cpm&utm_campaign=cat_remarketing";
+	    devDynamicContent.fonQ_dynamic_banners_9102017_Blad1[0].Landing.Url = "https://www.fonq.nl/campagne/verhuizen/?utm_source%E2%80%A6pecting|verhuizers&utm_content=banner|algemeen|V1";
 	    Enabler.setDevDynamicContent(devDynamicContent);
 
 	    startAds(devDynamicContent);
@@ -203,15 +203,22 @@ function startAds(prefix) {
 
     /*cta*/
     creative.dom.cta.addEventListener('click', function() {
-		window.open(prefix.fonQ_dynamic_banners_9102017_Blad1[0].Landing.Url);
-		Enabler.exit('Cta Exit');
+		Enabler.exitOverride('Cta Exit', prefix.fonQ_dynamic_banners_9102017_Blad1[0].Landing.Url)
 	});
 
 	/*background exit*/
-	creative.dom.background.addEventListener('click', function() {
-		window.open(prefix.fonQ_dynamic_banners_9102017_Blad1[0].Landing.Url);
-		Enabler.exit('Background Exit');
-	});
+	function backgroundClick() {
+		var arrBackground = [creative.dom.logoBig, creative.dom.background, creative.dom.skylineBg, creative.dom.skyline, creative.dom.copy3, creative.dom.rollOverImg, 
+			creative.dom.copy2, creative.dom.gradient, creative.dom.copy1];
+
+		for (var i = 0; i < arrBackground.length; i++) {
+			arrBackground[i].addEventListener('click', function() {
+				Enabler.exitOverride('Background Exit', prefix.fonQ_dynamic_banners_9102017_Blad1[0].Landing.Url);
+			});
+		}
+	}
+
+	backgroundClick();
 
 	/*background-foto*/
 	creative.dom.rollOverImg.style.backgroundImage = "url(" + prefix.fonQ_dynamic_banners_9102017_Blad1[0].background_image.Url + ")";

@@ -234,19 +234,17 @@ function startAds(prefix) {
 
     /*cta*/
     creative.dom.cta.addEventListener('click', function() {
-		window.open(prefix.fonQ_dynamic_banners_9102017_Blad1[0].Landing.Url);
-		Enabler.exit('Cta Exit');
+
+		Enabler.exit('Cta Exit', prefix.fonQ_dynamic_banners_9102017_Blad1[0].Landing.Url);
 	});
 
 	creative.dom.ctaFooter.addEventListener('click', function() {
-		window.open(prefix.fonQ_dynamic_banners_9102017_Blad1[0].Landing.Url);
-		Enabler.exit('Cta Exit');
+		Enabler.exit('Cta Exit', prefix.fonQ_dynamic_banners_9102017_Blad1[0].Landing.Url);
 	});
 
 	/*background exit*/
 	creative.dom.gradient.addEventListener('click', function() {
-		window.open(prefix.fonQ_dynamic_banners_9102017_Blad1[0].Landing.Url);
-		Enabler.exit('Background Exit');
+		Enabler.exit('Background Exit',prefix.fonQ_dynamic_banners_9102017_Blad1[0].Landing.Url);
 	});
 
 	/*background-foto*/

@@ -222,15 +222,22 @@ function startAds(prefix) {
 
     /*cta*/
     creative.dom.cta.addEventListener('click', function() {
-		window.open(prefix.fonQ_dynamic_banners_9102017_Blad1[0].Landing.Url);
-		Enabler.exit('Cta Exit');
+		Enabler.exit('Cta Exit', prefix.fonQ_dynamic_banners_9102017_Blad1[0].Landing.Url);
 	});
 
 	/*background exit*/
-	creative.dom.background.addEventListener('click', function() {
-		window.open(prefix.fonQ_dynamic_banners_9102017_Blad1[0].Landing.Url);
-		Enabler.exit('Background Exit');
-	});
+	(function(){
+		var arrBackground = [creative.dom.logoBig, creative.dom.background, creative.dom.copy3, creative.dom.rollOverImg, 
+			creative.dom.copy2, creative.dom.gradient, creative.dom.copy1];
+
+		for (var i = 0; i < arrBackground.length; i++) {
+			arrBackground[i].addEventListener('click', function() {
+				console.log(this)
+				Enabler.exitOverride('Background Exit', prefix.fonQ_dynamic_banners_9102017_Blad1[0].Landing.Url);
+			});
+		}
+
+	})();
 
 	/*background-foto*/
 	creative.dom.rollOverImg.style.backgroundImage = "url(" + prefix.fonQ_dynamic_banners_9102017_Blad1[0].background_image.Url + ")";
@@ -267,7 +274,6 @@ function animation() {
 	tl
 	.set(creative.dom.rollOverImg, {scale: 1.2})
 	.to(creative.dom.rollOverImg, 6 , {scale: 1,ease:Sine.easeOut}, 0)
-
 	.to(creative.dom.copy1, 1, {opacity: 0,ease:Sine.easeOut}, 3)
 	.to(creative.dom.copy2, 1, {opacity: 1,ease:Sine.easeIn}, 3)
 	
